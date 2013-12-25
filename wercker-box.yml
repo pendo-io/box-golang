@@ -28,7 +28,6 @@ script : |
 
   ls -l /usr/local
   ls -l /usr/local/go_appengine
-  exit 1
 
   # Set GOPATH
   export GOPATH="$HOME/go"
