@@ -6,9 +6,10 @@ platform : ubuntu@12.04
 description : golang
 keywords:
   - golang
+  - appengine
   - go
 packages :
-  - golang@1.1.1
+  - go_appengine@1.8.8
   - git
   - mercurial
   - bzr
@@ -16,10 +17,10 @@ script : |
   sudo apt-get update
   sudo apt-get install bzr
   sudo apt-get install mercurial
-  wget https://go.googlecode.com/files/go1.1.linux-amd64.tar.gz
-  sudo tar -C /usr/local -xzf go1.1.linux-amd64.tar.gz
-  echo "export PATH=$PATH:/usr/local/go/bin" | sudo tee -a /etc/profile
-  rm go1.1.linux-amd64.tar.gz
+  wget http://googleappengine.googlecode.com/files/go_appengine_sdk_linux_amd64-1.8.8.zip
+  sudo tar -C /usr/local -xzf go_appengine_sdk_linux_amd64-1.8.8.zip
+  echo "export PATH=$PATH:/usr/local/go_appengine" | sudo tee -a /etc/profile
+  rm go_appengine_sdk_linux_amd64-1.8.8.zip
 
   # Set GOPATH
   export GOPATH="$HOME/go"
@@ -57,16 +58,16 @@ default-build:
                 if test "${WERCKER_GIT_REPOSITORY+set}" == set; then cp -R $WERCKER_SOURCE_DIR/* "$GOPATH/src/$WERCKER_GIT_DOMAIN/$WERCKER_GIT_OWNER/$WERCKER_GIT_REPOSITORY"; fi
                 if test "${WERCKER_GIT_REPOSITORY+set}" == set; then export WERCKER_SOURCE_DIR="$GOPATH/src/$WERCKER_GIT_DOMAIN/$WERCKER_GIT_OWNER/$WERCKER_GIT_REPOSITORY"; fi
           - script:
-              name: go get
+              name: goapp get
               code: |
                 cd $WERCKER_SOURCE_DIR
-                go version
-                go get ./...
+                goapp version
+                goapp get ./...
           - script:
-              name: go build
+              name: goapp build
               code: |
-                go build
+                goapp build
           - script:
-              name: go test
+              name: goapp test
               code: |
-                go test ./...
+                goapp test ./...
