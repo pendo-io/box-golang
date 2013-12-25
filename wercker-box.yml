@@ -21,8 +21,8 @@ script : |
   sudo apt-get install unzip
   wget http://googleappengine.googlecode.com/files/go_appengine_sdk_linux_amd64-1.8.8.zip
   unzip go_appengine_sdk_linux_amd64-1.8.8.zip
-  find /usr/local/go_appengine -perm /u+r | xargs chmod a+r
-  find /usr/local/go_appengine -perm /u+x | xargs chmod a+x
+  find go_appengine -perm /u+r | xargs chmod a+r
+  find go_appengine -perm /u+x | xargs chmod a+x
   tar cSpf - go_appengine | (cd /usr/local; tar xvSpf -)
   echo "export PATH=$PATH:/usr/local/go_appengine" | sudo tee -a /etc/profile
   rm go_appengine_sdk_linux_amd64-1.8.8.zip
