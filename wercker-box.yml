@@ -13,10 +13,12 @@ packages :
   - git
   - mercurial
   - bzr
+  - unzip
 script : |
   sudo apt-get update
   sudo apt-get install bzr
   sudo apt-get install mercurial
+  sudo apt-get install unzip
   wget http://googleappengine.googlecode.com/files/go_appengine_sdk_linux_amd64-1.8.8.zip
   sudo unzip -d /usr/local go_appengine_sdk_linux_amd64-1.8.8.zip
   echo "export PATH=$PATH:/usr/local/go_appengine" | sudo tee -a /etc/profile
