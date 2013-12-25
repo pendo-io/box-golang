@@ -1,5 +1,5 @@
-name: golang
-version: 1.0.2
+name: goae
+version: 0.1
 inherits: wercker/ubuntu12.04-webessentials@0.0.3
 type : main
 platform : ubuntu@12.04
@@ -23,6 +23,10 @@ script : |
   sudo unzip -d /usr/local go_appengine_sdk_linux_amd64-1.8.8.zip
   echo "export PATH=$PATH:/usr/local/go_appengine" | sudo tee -a /etc/profile
   rm go_appengine_sdk_linux_amd64-1.8.8.zip
+  ls -ls /usr/local
+  ls -l /usr/local/go_appengine
+  exit 1
+
 
   # Set GOPATH
   export GOPATH="$HOME/go"
