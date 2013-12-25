@@ -20,11 +20,15 @@ script : |
   sudo apt-get install mercurial
   sudo apt-get install unzip
   wget http://googleappengine.googlecode.com/files/go_appengine_sdk_linux_amd64-1.8.8.zip
-  unzip go_appengine_sdk_linux_amd64-1.8.8.zip
-  find go_appengine -perm /u+r | xargs chmod a+r
-  find go_appengine -perm /u+x | xargs chmod a+x
-  echo "export PATH=$PATH:$HOME/go_appengine" | sudo tee -a /etc/profile
+  sudo unzip -d /usr/local go_appengine_sdk_linux_amd64-1.8.8.zip
+  sudo sh -c "find go_appengine -perm /u+r | xargs chmod a+r"
+  sudo sh -c "find go_appengine -perm /u+x | xargs chmod a+x"
+  echo "export PATH=$PATH:/usr/local/go_appengine" | sudo tee -a /etc/profile
   rm go_appengine_sdk_linux_amd64-1.8.8.zip
+
+  ls -l /usr/local
+  ls -l /usr/local/go_appengine
+  exit 1
 
   # Set GOPATH
   export GOPATH="$HOME/go"
