@@ -23,13 +23,8 @@ script : |
   unzip go_appengine_sdk_linux_amd64-1.8.8.zip
   find go_appengine -perm /u+r | xargs chmod a+r
   find go_appengine -perm /u+x | xargs chmod a+x
-  tar cSpf - go_appengine | (cd /usr/local; tar xvSpf -)
-  echo "export PATH=$PATH:/usr/local/go_appengine" | sudo tee -a /etc/profile
+  echo "export PATH=$PATH:$HOME/go_appengine" | sudo tee -a /etc/profile
   rm go_appengine_sdk_linux_amd64-1.8.8.zip
-  ls -ls /usr/local
-  ls -l /usr/local/go_appengine
-  exit 1
-
 
   # Set GOPATH
   export GOPATH="$HOME/go"
