@@ -23,14 +23,14 @@ script : |
   sudo unzip -d /usr/local go_appengine_sdk_linux_amd64-1.9.1.zip
   sudo sh -c "find /usr/local/go_appengine -perm /u+r | xargs chmod a+r"
   sudo sh -c "find /usr/local/go_appengine -perm /u+x | xargs chmod a+x"
-  echo "export PATH=$PATH:/usr/local/go_appengine" | sudo tee -a /etc/profile
   rm go_appengine_sdk_linux_amd64-1.9.1.zip
 
   goversion=1.2.1
   wget http://go.googlecode.com/files/go${goversion}.linux-amd64.tar.gz
   sudo tar -C /usr/local -xzf go${goversion}.linux-amd64.tar.gz
-  echo "export PATH=$PATH:/usr/local/go/bin" | sudo tee -a /etc/profile
   rm go${goversion}.linux-amd64.tar.gz
+
+  echo "export PATH=$PATH:/usr/local/go/bin:/usr/local/go_appengine" | sudo tee -a /etc/profile
 
   ls -l /usr/local
   ls -l /usr/local/go_appengine
