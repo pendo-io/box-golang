@@ -30,6 +30,10 @@ script : |
   sudo tar -C /usr/local -xzf go${goversion}.linux-amd64.tar.gz
   rm go${goversion}.linux-amd64.tar.gz
 
+  # Get Karma
+  sudo apt-get install -y libqt4-dev qt4-qmake
+  sudo npm install -g karma-jasmine karma-phantomjs-launcher karma-cli karma-coverage
+
   echo "export PATH=$PATH:/usr/local/go/bin:/usr/local/go_appengine" | sudo tee -a /etc/profile
 
   ls -l /usr/local
