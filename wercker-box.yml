@@ -1,6 +1,6 @@
 name: goae
 version: 0.0.8
-inherits: wercker/nodejs
+inherits: wercker/nodejs@1.0.2
 type : main
 platform : ubuntu@12.04
 description : golang
