@@ -1,5 +1,5 @@
 name: goae
-version: 0.0.9
+version: 0.0.10
 inherits: wercker/nodejs@1.0.2
 type : main
 platform : ubuntu@12.04
