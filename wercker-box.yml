@@ -34,6 +34,9 @@ script : |
   sudo apt-get install -y libqt4-dev qt4-qmake
   sudo npm install -g karma-jasmine karma-phantomjs-launcher karma-cli karma-coverage
 
+  # Get Gulp
+  sudo npm install -g gulp gulp-cached gulp-concat gulp-footer gulp-header gulp-ignore gulp-jshint gulp-remember gulp-sourcemaps gulp-ugligy vinyl-buffer vinyl-source-stream browserify del
+
   echo "export PATH=$PATH:/usr/local/go/bin:/usr/local/go_appengine" | sudo tee -a /etc/profile
 
   ls -l /usr/local
