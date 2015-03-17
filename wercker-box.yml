@@ -27,7 +27,7 @@ script : |
   rm go_appengine_sdk_linux_amd64-${aesdk_version}.zip
 
   goversion=1.4.1
-  wget http://go.googlecode.com/files/go${goversion}.linux-amd64.tar.gz
+  wget http://storage.googleapis.com/golang/go${goversion}.linux-amd64.tar.gz
   sudo tar -C /usr/local -xzf go${goversion}.linux-amd64.tar.gz
   rm go${goversion}.linux-amd64.tar.gz
 
