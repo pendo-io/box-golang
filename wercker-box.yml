@@ -1,5 +1,5 @@
 name: goae
-version: 0.1.0
+version: 0.1.1
 inherits: wercker/nodejs@1.0.2
 type : main
 platform : ubuntu@12.04
@@ -9,13 +9,13 @@ keywords:
   - appengine
   - go
 packages :
-  - go_appengine@1.9.18
+  - go_appengine@1.9.28
   - git
   - mercurial
   - bzr
   - unzip
 script : |
-  aesdk_version=1.9.18
+  aesdk_version=1.9.28
   sudo apt-get update
   sudo apt-get install bzr
   sudo apt-get install mercurial
@@ -26,7 +26,7 @@ script : |
   sudo sh -c "find /usr/local/go_appengine -perm /u+x | xargs chmod a+x"
   rm go_appengine_sdk_linux_amd64-${aesdk_version}.zip
 
-  goversion=1.4.1
+  goversion=1.4.2
   wget http://storage.googleapis.com/golang/go${goversion}.linux-amd64.tar.gz
   sudo tar -C /usr/local -xzf go${goversion}.linux-amd64.tar.gz
   rm go${goversion}.linux-amd64.tar.gz
