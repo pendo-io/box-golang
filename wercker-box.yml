@@ -38,6 +38,7 @@ script : |
   # Get Gulp
   sudo npm install -g gulp gulp-cached gulp-concat gulp-footer gulp-header gulp-ignore gulp-jshint gulp-remember gulp-sourcemaps gulp-uglify vinyl-buffer vinyl-source-stream browserify del gulp-ng-annotate gulp-minify-css
 
+  export PATH=$PATH:/usr/local/go/bin:/usr/local/go_appengine"
   echo "export PATH=$PATH:/usr/local/go/bin:/usr/local/go_appengine" | sudo tee -a /etc/profile
 
   sudo goapp get golang.org/x/tools/cover
