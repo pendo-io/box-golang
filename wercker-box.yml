@@ -40,7 +40,8 @@ script : |
 
   echo "export PATH=$PATH:/usr/local/go/bin:/usr/local/go_appengine" | sudo tee -a /etc/profile
 
-  sudo /usr/local/go_appengine/goapp get golang.org/x/tools/cover
+  sudo goapp get golang.org/x/tools/cover
+  sudo go get golang.org/x/tools/cover
 
   ls -l /usr/local
   ls -l /usr/local/go_appengine
