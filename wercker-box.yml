@@ -33,12 +33,12 @@ script : |
 
   # Get Karma
   sudo apt-get install -y libqt4-dev qt4-qmake
-  sudo npm install -g karma-jasmine karma-phantomjs-launcher karma-cli karma-coverage
+  #sudo npm install -g karma-jasmine karma-phantomjs-launcher karma-cli karma-coverage
 
   # Get Gulp
-  sudo npm install -g gulp gulp-cached gulp-concat gulp-footer gulp-header gulp-ignore gulp-jshint gulp-remember gulp-sourcemaps gulp-uglify vinyl-buffer vinyl-source-stream browserify del gulp-ng-annotate gulp-minify-css
+  #sudo npm install -g gulp gulp-cached gulp-concat gulp-footer gulp-header gulp-ignore gulp-jshint gulp-remember gulp-sourcemaps gulp-uglify vinyl-buffer vinyl-source-stream browserify del gulp-ng-annotate gulp-minify-css
 
-  export PATH=$PATH:/usr/local/go/bin:/usr/local/go_appengine"
+  export PATH=$PATH:/usr/local/go/bin:/usr/local/go_appengine
   echo "export PATH=$PATH:/usr/local/go/bin:/usr/local/go_appengine" | sudo tee -a /etc/profile
 
   sudo goapp get -v golang.org/x/tools/cover
