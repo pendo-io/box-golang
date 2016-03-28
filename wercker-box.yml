@@ -1,5 +1,5 @@
 name: goae
-version: 0.1.3
+version: 0.2.0
 inherits: wercker/nodejs@1.0.2
 type : main
 platform : ubuntu@12.04
@@ -9,13 +9,13 @@ keywords:
   - appengine
   - go
 packages :
-  - go_appengine@1.9.28
+  - go_appengine@1.9.35
   - git
   - mercurial
   - bzr
   - unzip
 script : |
-  aesdk_version=1.9.28
+  aesdk_version=1.9.35
   sudo apt-get update
   sudo apt-get install bzr
   sudo apt-get install mercurial
