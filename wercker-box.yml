@@ -17,32 +17,17 @@ packages :
 script : |
   aesdk_version=1.9.35
   sudo apt-get update
-  sudo apt-get install bzr
-  sudo apt-get install mercurial
-  sudo apt-get install unzip
+  sudo apt-get install bzr mercurial unzip
   wget https://commondatastorage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-${aesdk_version}.zip
   sudo unzip -d /usr/local go_appengine_sdk_linux_amd64-${aesdk_version}.zip
   sudo sh -c "find /usr/local/go_appengine -perm /u+r | xargs chmod a+r"
   sudo sh -c "find /usr/local/go_appengine -perm /u+x | xargs chmod a+x"
   rm go_appengine_sdk_linux_amd64-${aesdk_version}.zip
 
-  goversion=1.4.2
-  wget http://storage.googleapis.com/golang/go${goversion}.linux-amd64.tar.gz
-  sudo tar -C /usr/local -xzf go${goversion}.linux-amd64.tar.gz
-  rm go${goversion}.linux-amd64.tar.gz
-
-  # Get Karma
-  sudo apt-get install -y libqt4-dev qt4-qmake
-  #sudo npm install -g karma-jasmine karma-phantomjs-launcher karma-cli karma-coverage
-
-  # Get Gulp
-  #sudo npm install -g gulp gulp-cached gulp-concat gulp-footer gulp-header gulp-ignore gulp-jshint gulp-remember gulp-sourcemaps gulp-uglify vinyl-buffer vinyl-source-stream browserify del gulp-ng-annotate gulp-minify-css
-
   export PATH=$PATH:/usr/local/go/bin:/usr/local/go_appengine
   echo "export PATH=$PATH:/usr/local/go/bin:/usr/local/go_appengine" | sudo tee -a /etc/profile
 
   sudo goapp get -v golang.org/x/tools/cover
-  sudo go get -v golang.org/x/tools/cover
 
   ls -l /usr/local
   ls -l /usr/local/go_appengine
