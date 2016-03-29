@@ -19,7 +19,7 @@ script : |
   sudo apt-get update
   sudo apt-get install unzip
   wget https://commondatastorage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-${aesdk_version}.zip
-  unzip -d go_appengine_sdk_linux_amd64-${aesdk_version}.zip
+  unzip go_appengine_sdk_linux_amd64-${aesdk_version}.zip
   sh -c "find go_appengine -perm /u+r | xargs chmod a+r"
   sh -c "find go_appengine -perm /u+x | xargs chmod a+x"
   rm go_appengine_sdk_linux_amd64-${aesdk_version}.zip
