@@ -16,33 +16,25 @@ packages :
   - unzip
 script : |
   aesdk_version=1.9.35
-  sudo apt-get update
-  sudo apt-get install bzr mercurial unzip
   wget https://commondatastorage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-${aesdk_version}.zip
-  sudo unzip -d /usr/local go_appengine_sdk_linux_amd64-${aesdk_version}.zip
-  sudo sh -c "find /usr/local/go_appengine -perm /u+r | xargs chmod a+r"
-  sudo sh -c "find /usr/local/go_appengine -perm /u+x | xargs chmod a+x"
+  unzip -d go_appengine_sdk_linux_amd64-${aesdk_version}.zip
+  sh -c "find go_appengine -perm /u+r | xargs chmod a+r"
+  sh -c "find go_appengine -perm /u+x | xargs chmod a+x"
   rm go_appengine_sdk_linux_amd64-${aesdk_version}.zip
 
-  export PATH=$PATH:/usr/local/go/bin:/usr/local/go_appengine
-  echo "export PATH=$PATH:/usr/local/go/bin:/usr/local/go_appengine" | sudo tee -a /etc/profile
-
-  sudo goapp get -v golang.org/x/tools/cover
-
-  ls -l /usr/local
-  ls -l /usr/local/go_appengine
+  # Make actual go workspace dir structure
+  mkdir -p "$HOME/go/{src,pkg,bin}"
 
   # Set GOPATH
   export GOPATH="$HOME/go"
   echo 'export GOPATH="$HOME/go"' | sudo tee -a /etc/profile
 
-  # Adds go bin directory to path so tools
-  # and buils are available on the commandline
-  export PATH="$PATH:$GOPATH/bin"
-  echo 'export PATH="$PATH:$GOPATH/bin"' | sudo tee -a /etc/profile
+  export PATH="$PATH:$HOME/go/bin:$HOME/go_appengine"
+  echo 'export PATH="$PATH/go/bin:$HOME/go_appengine"' | sudo tee -a /etc/profile
 
-  # Make actual go workspace dir structure
-  mkdir -p "$HOME/go/{src,pkg,bin}"
+  goapp get -v golang.org/x/tools/cover
+
+  cat /etc/profile
 
 box-detect:
   priority : 900
