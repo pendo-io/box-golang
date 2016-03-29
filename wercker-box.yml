@@ -1,42 +1,19 @@
 name: goae
 version: 0.2.0
-inherits: wercker/nodejs@1.0.2
+inherits: michilu/goapp@1.9.35
 type : main
 platform : ubuntu@12.04
 description : golang
 keywords:
   - golang
   - appengine
+  - nodejs
   - go
 packages :
-  - go_appengine@1.9.35
-  - git
-  - mercurial
-  - bzr
-  - unzip
+  - nodejs@4.3.1
 script : |
-  aesdk_version=1.9.35
-  sudo apt-get update
-  sudo apt-get install unzip
-  wget https://commondatastorage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-${aesdk_version}.zip
-  unzip go_appengine_sdk_linux_amd64-${aesdk_version}.zip
-  sh -c "find go_appengine -perm /u+r | xargs chmod a+r"
-  sh -c "find go_appengine -perm /u+x | xargs chmod a+x"
-  rm go_appengine_sdk_linux_amd64-${aesdk_version}.zip
-
-  # Make actual go workspace dir structure
-  mkdir -p "$HOME/go/{src,pkg,bin}"
-
-  # Set GOPATH
-  export GOPATH="$HOME/go"
-  echo 'export GOPATH="$HOME/go"' | sudo tee -a /etc/profile
-
-  export PATH="$PATH:$HOME/go/bin:$HOME/go_appengine"
-  echo 'export PATH="$PATH/go/bin:$HOME/go_appengine"' | sudo tee -a /etc/profile
-
-  goapp get -v golang.org/x/tools/cover
-
-  cat /etc/profile
+  curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+  sudo apt-get install -y nodejs
 
 box-detect:
   priority : 900
