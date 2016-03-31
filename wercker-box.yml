@@ -9,9 +9,20 @@ keywords:
   - appengine
   - nodejs
   - go
+  - dc
+  - cloc
 packages :
   - nodejs@4.4.1
 script : |
   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-  sudo apt-get install -y nodejs
+  sudo apt-get install -y nodejs dc cloc
 
+  # Workaround for 1.9.35 SDK
+
+  export SDK_LOCATION="$(dirname $(which goapp))"
+  echo "Fixing go build tags"
+
+  cd $SDK_LOCATION
+  sudo ./goapp install cmd/go
+  sudo mv goroot/bin/go goroot/bin/goapp
+  sudo ./goapp install cmd/cover
