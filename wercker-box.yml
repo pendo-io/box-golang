@@ -1,5 +1,5 @@
 name: goae
-version: 0.3.0
+version: 1.9.35.1
 inherits: michilu/goapp@1.9.35
 type : main
 platform : ubuntu@12.04
