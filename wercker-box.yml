@@ -19,9 +19,10 @@ script : |
 
   sudo curl http://nchc.dl.sourceforge.net/project/cloc/cloc/v1.64/cloc-1.64.pl > /usr/bin/cloc-1.64.pl
   sudo echo<<EOD > /usr/bin/cloc
-#!/bin/sh
-#perl /usr/bin/cloc-1.64.pl $*
-EOD
+  #!/bin/sh
+  #perl /usr/bin/cloc-1.64.pl $*
+  EOD
+  sudo chmod 755 /usr/bin/cloc
 
   # Workaround for 1.9.35 SDK
 
