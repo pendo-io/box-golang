@@ -18,11 +18,9 @@ script : |
   sudo apt-get install -y nodejs dc
 
   curl -sL http://nchc.dl.sourceforge.net/project/cloc/cloc/v1.64/cloc-1.64.pl > cloc-1.64.pl
-  sudo cp cloc-1.64.pl /usr/bin
-  sudo echo<<EOD > /usr/bin/cloc
-  #!/bin/sh
-  #perl /usr/bin/cloc-1.64.pl $*
-  EOD
+  echo '#!/bin/sh' > cloc
+  echo 'perl /usr/bin/cloc-1.64.pl $*' > cloc
+  sudo cp cloc cloc-1.64.pl /usr/bin
   sudo chmod 755 /usr/bin/cloc
 
   # Workaround for 1.9.35 SDK
